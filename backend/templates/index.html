@@ -1,0 +1,44 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zero-Internet AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="app">
+    <h1>Zero-Internet AI Assistant</h1>
+    <p class="subtitle">Works offline • Learns locally • Syncs with peers</p>
+
+    <div class="chat-box">
+        <div id="response" class="response">
+            Ask me something…
+        </div>
+    </div>
+
+    <input
+        type="text"
+        id="question"
+        placeholder="Type your question here"
+        autocomplete="off"
+    />
+
+    <div class="buttons">
+        <button onclick="askQuestion()">Ask</button>
+        <button onclick="exportKnowledge()">Export Knowledge</button>
+        <button onclick="importKnowledge()">Import Knowledge</button>
+    </div>
+
+    <textarea
+        id="syncData"
+        placeholder="Paste knowledge packets here to simulate peer-to-peer sync"
+    ></textarea>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
