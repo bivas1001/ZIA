@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+import os
 
 
 from knowledge.store import (
@@ -191,6 +192,5 @@ def sync_import():
 
 
 if __name__ == "__main__":
-    # For local development only.
-    # In production / hackathon demo, use gunicorn or similar if needed.
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
