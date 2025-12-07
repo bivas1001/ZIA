@@ -1,20 +1,17 @@
-# backend/knowledge/store.py
-#
-# Handles:
-# - Local SQLite database
-# - Saving Q&A knowledge
-# - Searching best answers
-# - Exporting knowledge packets
-# - Importing & merging packets from peers
-
 import sqlite3
 import uuid
 import time
 import os
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "../database/assistant.db")
-DEVICE_ID = str(uuid.uuid4())[:8]
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# ✅ Railway & local safe DB directory
+DB_DIR = os.path.join(BASE_DIR, "..", "database")
+os.makedirs(DB_DIR, exist_ok=True)
+
+DB_PATH = os.path.join(DB_DIR, "assistant.db")
+
+DEVICE_ID = str(uuid.uuid4())[:8]
 
 # -------------------------
 # DATABASE INITIALIZATION
